@@ -14,12 +14,17 @@ class Exp(MyExp):
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
 
         # Define yourself dataset path
-        self.data_dir = "datasets/coco128"
+        #self.data_dir = "/home/nssd/gled/vb/dataset-vb/backline/annotaned_ball_yolov8_dataset_v2_coco"
+        self.data_dir = "annotaned_ball_yolov8_dataset_v2_coco"
         self.train_ann = "instances_train2017.json"
         self.val_ann = "instances_val2017.json"
 
-        self.num_classes = 71
+        self.num_classes = 1
 
-        self.max_epoch = 300
-        self.data_num_workers = 4
+        self.max_epoch = 8
+        self.data_num_workers = 6
         self.eval_interval = 1
+        # увеличиваем размер входного изображения
+        self.input_size = (1280, 1280)  # (height, width)
+        self.test_size = (1280, 1280)  # (height, width)
+        self.multiscale_range = 0
